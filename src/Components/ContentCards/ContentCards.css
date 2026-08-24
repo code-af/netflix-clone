@@ -14,4 +14,8 @@
 .poster-image{
     max-height: 250px;
     margin-right: 10px;
+    cursor: pointer;
+}
+.poster-image:hover{
+    transform: scale(1.2);
 }
