@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import './Banner.css'
-import {API_KEY} from '../../Constants/Constants'
+import {API_KEY, imageUrl} from '../../Constants/Constants'
 import axiosInstance from '../../axiosConfig' 
 
 function Banner(){
@@ -14,7 +14,8 @@ function Banner(){
         })
     },[])
     return(
-        <div className='banner'>
+        <div style={{backgroundImage:`url(${movie ? imageUrl+movie.backdrop_path : ""})`}} 
+        className='banner'>
             <div className='content'>
                 <h1 className='title-name'>{movie ? movie.name || movie.title : ""}</h1>
                 <div className='banner-btns'>
