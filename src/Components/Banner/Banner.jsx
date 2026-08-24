@@ -8,10 +8,8 @@ function Banner(){
     useEffect(()=>{
         axiosInstance.get(`https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US`).then((response)=>{
             const randomMedia = Math.floor(Math.random() * response.data.results.length)
-            console.log(randomMedia)
             setMovie(response.data.results[randomMedia])
-            console.log(response.data.results[randomMedia])
-        })
+        }).catch(err=>alert("Something went wrong ☹️"))
     },[])
     return(
         <div style={{backgroundImage:`url(${movie ? imageUrl+movie.backdrop_path : ""})`}} 
@@ -24,9 +22,7 @@ function Banner(){
                 </div>
                 <h1 className='description'>{movie ? movie.overview : ""}</h1>
             </div>
-        <div className="bottom-fade">
-            
-        </div>
+            <div className="bottom-fade"></div>
         </div>
     )
 }
